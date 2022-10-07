@@ -1,2 +1,2 @@
 # discordbot
-Prøver fixe Hjemezez discord bot
+Prøver at fixe Hjemezez discord bot
