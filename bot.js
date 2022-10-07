@@ -1,4 +1,18 @@
-const { REST, Routes } = require('discord.js');
+// Require the necessary discord.js classes
+const { Client, GatewayIntentBits } = require('discord.js');
+const { token } = require('./config.json');
+
+// Create a new client instance
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+
+// When the client is ready, run this code (only once)
+client.once('ready', () => {
+	console.log('Ready!');
+});
+
+// Login to Discord with your client's token
+client.login(token);
+
 
 const commands = [
   {
@@ -11,7 +25,7 @@ const commands = [
   },
 ];
 
-const rest = new REST({ version: '10' }).setToken('9ad83a292cf747bcb6b47c12e42d5732754b794918376e5686981b144f0b9d87');
+const rest = new REST({ version: '10' }).setToken(token);
 
 (async () => {
   try {
