@@ -1,5 +1,5 @@
 // Require the necessary discord.js classes
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, InteractionResponse } = require('discord.js');
 const { token } = require('./config.json');
 
 // Create a new client instance
@@ -21,7 +21,9 @@ client.on('interactionCreate', async interaction => {
 		await interaction.reply('Server info.');
 	} else if (commandName === 'user') {
 		await interaction.reply('User info.');
-	}
+	} else if (commandName === 'hello') {
+    await interaction.reply('Hello!');
+  }
 });
 
 
