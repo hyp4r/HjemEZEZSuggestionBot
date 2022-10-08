@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
+const message = interaction.options.getString('meesage');
 
 module.exports = {
 	data: new SlashCommandBuilder()
