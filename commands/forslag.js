@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder, Client, GatewayIntentBits, messageLink } = require('discord.js');
-var { Suggestion_nr } = require('./sg_num.json')
+var { Suggestion_nr } = require('../sg_num.json')
 
 const fs = require('fs');
 const path = require('path');
