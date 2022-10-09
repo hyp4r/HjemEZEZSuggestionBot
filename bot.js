@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 // Require the necessary discord.js classes
 require('discord.js');
-const { Client, GatewayIntentBits, InteractionResponse, Collection, TextChannel } = require('discord.js');
+const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const { token } = require('./config.json');
 const { channel } = require('node:diagnostics_channel');
 

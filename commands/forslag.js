@@ -1,4 +1,4 @@
-const { message, EmbedBuilder, SlashCommandBuilder, Client, GatewayIntentBits } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder, Client, GatewayIntentBits } = require('discord.js');
 var { Suggestion_nr } = require('../sg_num.json')
 
 const fs = require('fs');
