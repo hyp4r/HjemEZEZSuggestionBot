@@ -41,6 +41,8 @@ module.exports = {
 			{ name: `Suggestion #${Suggestion_nr}`, value: `${input}`, inline: false },
 	)
 		const channel = await interaction.client.channels.cache.get('1028347318136733797').send({ embeds: [exampleEmbed] });
+		channel.react('⬆️');
+		channel.react('⬇️');
 		await interaction.reply({content: `Dit forslag er blevet indsendt`, ephemeral: true});
 		Suggestion_nr = Suggestion_nr + 1;
 		const Sg_nr = {
