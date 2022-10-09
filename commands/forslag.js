@@ -1,10 +1,9 @@
-const { EmbedBuilder, SlashCommandBuilder, Client, GatewayIntentBits, messageLink } = require('discord.js');
+const { message, EmbedBuilder, SlashCommandBuilder, Client, GatewayIntentBits } = require('discord.js');
 var { Suggestion_nr } = require('../sg_num.json')
 
 const fs = require('fs');
 const path = require('path');
 
-console.log(Suggestion_nr);
 const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
@@ -13,7 +12,6 @@ const client = new Client({
 		GatewayIntentBits.GuildMembers,
 	],
 });
-
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -34,20 +32,21 @@ module.exports = {
                 .setRequired(true)),
     async execute(interaction) {
         const input = await interaction.options.getString('input');
+		const user = interaction.user.tag;
+		const user_avatar = interaction.user.avatarURL();
 		const exampleEmbed = new EmbedBuilder()
 			.setColor(0x0099FF)
-			.setTitle('he')
+			.setAuthor({ name: user, iconURL: user_avatar })
 			.addFields(
 			{ name: `Suggestion #${Suggestion_nr}`, value: `${input}`, inline: false },
 	)
 		const channel = await interaction.client.channels.cache.get('1028347318136733797').send({ embeds: [exampleEmbed] });
-		await interaction.reply('Dit forslag er blevet indsendt');
+		await interaction.reply(`Dit forslag er blevet indsendt`);
 		Suggestion_nr = Suggestion_nr + 1;
-		console.log(Suggestion_nr);
 		const Sg_nr = {
 			"Suggestion_nr": Suggestion_nr
 		}
 		 
-		fs.writeFileSync(path.resolve(__dirname, 'sg_num.json'), JSON.stringify(Sg_nr));
+		fs.writeFileSync(path.resolve(__dirname, '../sg_num.json'), JSON.stringify(Sg_nr));
     },
 };
