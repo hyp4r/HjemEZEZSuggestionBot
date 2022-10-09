@@ -46,7 +46,6 @@ module.exports = {
 		const Sg_nr = {
 			"Suggestion_nr": Suggestion_nr
 		}
-		 
 		fs.writeFileSync(path.resolve(__dirname, '../sg_num.json'), JSON.stringify(Sg_nr));
     },
 };
