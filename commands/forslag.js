@@ -32,11 +32,11 @@ module.exports = {
                 .setRequired(true)),
     async execute(interaction) {
 		if (interaction.options.getString('valg') === 'discord') {
-            const user_choice = 7506394;
+            var user_choice = 7506394;
         } else if (interaction.options.getString('valg') === 'map') {
-			const user_choice = 16767334; 
+			var user_choice = 16767334; 
 		} else if (interaction.options.getString('valg') === 'event') {
-			const user_choice = 10027008;
+			var user_choice = 10027008;
 		}
         const input = await interaction.options.getString('input');
 		const user = interaction.user.tag;
