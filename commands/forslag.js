@@ -1,5 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder, Client, GatewayIntentBits } = require('discord.js');
 var { Suggestion_nr } = require('../sg_num.json')
+var user_choice;
 
 const fs = require('fs');
 const path = require('path');
@@ -22,20 +23,27 @@ module.exports = {
 				.setDescription('Vælg et forslag')
 				.setRequired(true)
 				.addChoices(
-					{ name: 'Map', value: 'Lav et forslag til maps'},
-					{ name: 'Discord', value: 'Lav et forslag til Discorden'},
-					{ name: 'Event', value: 'Lav et forslag til events'},
+					{ name: 'Map', value: 'map'},
+					{ name: 'Discord', value: 'discord'},
+					{ name: 'Event', value: 'event'},
 				))
         .addStringOption(option =>
             option.setName('input')
                 .setDescription('Forslaget')
                 .setRequired(true)),
     async execute(interaction) {
+		if (interaction.options.getString('valg') === 'discord') {
+            user_choice = 7506394;
+        } else if (interaction.options.getString('valg') === 'map') {
+			user_choice = 16767334; 
+		} else if (interaction.options.getString('valg') === 'event') {
+			user_choice = 10027008;
+		}
         const input = await interaction.options.getString('input');
 		const user = interaction.user.tag;
 		const user_avatar = interaction.user.avatarURL();
 		const exampleEmbed = new EmbedBuilder()
-			.setColor(0x0099FF)
+			.setColor(user_choice)
 			.setAuthor({ name: user, iconURL: user_avatar })
 			.addFields(
 			{ name: `Suggestion #${Suggestion_nr}`, value: `${input}`, inline: false },
