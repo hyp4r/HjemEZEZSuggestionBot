@@ -1,6 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder, Client, GatewayIntentBits } = require('discord.js');
 var { Suggestion_nr } = require('../sg_num.json')
-var user_choice;
 
 const fs = require('fs');
 const path = require('path');
@@ -33,11 +32,11 @@ module.exports = {
                 .setRequired(true)),
     async execute(interaction) {
 		if (interaction.options.getString('valg') === 'discord') {
-            user_choice = 7506394;
+            const user_choice = 7506394;
         } else if (interaction.options.getString('valg') === 'map') {
-			user_choice = 16767334; 
+			const user_choice = 16767334; 
 		} else if (interaction.options.getString('valg') === 'event') {
-			user_choice = 10027008;
+			const user_choice = 10027008;
 		}
         const input = await interaction.options.getString('input');
 		const user = interaction.user.tag;
